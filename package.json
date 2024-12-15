@@ -14,11 +14,11 @@
   "contributes": {
     "commands": [
       {
-        "command": "lang-jump.moveCursorRight",
+        "command": "jp-to-other-selector.moveCursorRight",
         "title": "Move Cursor Right"
       },
       {
-        "command": "lang-jump.moveCursorLeft",
+        "command": "jp-to-other-selector.moveCursorLeft",
         "title": "Move Cursor Left"
       }
     ]

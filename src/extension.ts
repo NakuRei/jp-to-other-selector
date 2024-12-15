@@ -35,17 +35,21 @@ export function activate(context: vscode.ExtensionContext): void {
    * The commandId parameter must match the command field in package.json
    */
   context.subscriptions.push(
-    vscode.commands.registerCommand('lang-jump.moveCursorRight', () => {
-      moveCursorRight().catch((error: unknown) => {
-        console.error('Failed to move cursor right:', error);
-      });
-    }),
+    vscode.commands.registerCommand(
+      'jp-to-other-selector.moveCursorRight', () => {
+        moveCursorRight().catch((error: unknown) => {
+          console.error('Failed to move cursor right:', error);
+        });
+      },
+    ),
   );
   context.subscriptions.push(
-    vscode.commands.registerCommand('lang-jump.moveCursorLeft', () => {
-      moveCursorLeft().catch((error: unknown) => {
-        console.error('Failed to move cursor right:', error);
-      });
-    }),
+    vscode.commands.registerCommand(
+      'jp-to-other-selector.moveCursorLeft', () => {
+        moveCursorLeft().catch((error: unknown) => {
+          console.error('Failed to move cursor right:', error);
+        });
+      },
+    ),
   );
 }
