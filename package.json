@@ -32,6 +32,8 @@
     "*.{js,ts}": "eslint --fix"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
     "@stylistic/eslint-plugin": "^2.12.1",
     "@stylistic/eslint-plugin-ts": "^2.12.1",
     "@types/mocha": "^10.0.10",
