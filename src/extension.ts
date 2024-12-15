@@ -4,6 +4,16 @@
  */
 import * as vscode from 'vscode';
 
+async function moveCursorRight(): Promise<void> {
+  vscode.window.showInformationMessage('Move Right!');
+  await vscode.commands.executeCommand('cursorWordRight');
+}
+
+async function moveCursorLeft(): Promise<void> {
+  vscode.window.showInformationMessage('Move Left!');
+  await vscode.commands.executeCommand('cursorWordLeft');
+}
+
 /*
  * This method is called when your extension is activated
  * Your extension is activated the very first time the command is executed
@@ -24,19 +34,18 @@ export function activate(context: vscode.ExtensionContext): void {
    * Now provide the implementation of the command with registerCommand
    * The commandId parameter must match the command field in package.json
    */
-  const disposable = vscode.commands.registerCommand(
-    'jp-to-other-selector.helloWorld',
-    () => {
-    /*
-     * The code you place here will be executed every time your command is
-     * executed
-     * Display a message box to the user
-     */
-      vscode.window.showInformationMessage(
-        'Hello World from Jp to Other Selector!',
-      );
-    },
+  context.subscriptions.push(
+    vscode.commands.registerCommand('lang-jump.moveCursorRight', () => {
+      moveCursorRight().catch((error: unknown) => {
+        console.error('Failed to move cursor right:', error);
+      });
+    }),
   );
-
-  context.subscriptions.push(disposable);
+  context.subscriptions.push(
+    vscode.commands.registerCommand('lang-jump.moveCursorLeft', () => {
+      moveCursorLeft().catch((error: unknown) => {
+        console.error('Failed to move cursor right:', error);
+      });
+    }),
+  );
 }

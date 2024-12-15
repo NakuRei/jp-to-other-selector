@@ -14,8 +14,12 @@
   "contributes": {
     "commands": [
       {
-        "command": "jp-to-other-selector.helloWorld",
-        "title": "Hello World"
+        "command": "lang-jump.moveCursorRight",
+        "title": "Move Cursor Right"
+      },
+      {
+        "command": "lang-jump.moveCursorLeft",
+        "title": "Move Cursor Left"
       }
     ]
   },
