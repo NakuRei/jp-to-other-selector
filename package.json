@@ -21,6 +21,20 @@
         "command": "jp-to-other-selector.moveCursorLeft",
         "title": "Move Cursor Left"
       }
+    ],
+    "keybindings": [
+      {
+        "command": "jp-to-other-selector.moveCursorRight",
+        "key": "ctrl+right",
+        "mac": "cmd+right",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "jp-to-other-selector.moveCursorLeft",
+        "key": "ctrl+left",
+        "mac": "cmd+left",
+        "when": "editorTextFocus"
+      }
     ]
   },
   "scripts": {
