@@ -25,7 +25,7 @@ export function activate(context: vscode.ExtensionContext): void {
    * This line of code will only be executed once
    * when your extension is activated
    */
-  vscode.window.showInformationMessage(
+  console.log(
     'Congratulations, your extension "jp-to-other-selector" is now active!',
   );
 
