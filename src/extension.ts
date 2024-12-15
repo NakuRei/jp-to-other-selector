@@ -38,7 +38,9 @@ export function activate(context: vscode.ExtensionContext): void {
     vscode.commands.registerCommand(
       'jp-to-other-selector.moveCursorRight', () => {
         moveCursorRight().catch((error: unknown) => {
-          console.error('Failed to move cursor right:', error);
+          vscode.window.showErrorMessage(
+            `Failed to move cursor right: ${String(error)}`,
+          );
         });
       },
     ),
@@ -47,7 +49,9 @@ export function activate(context: vscode.ExtensionContext): void {
     vscode.commands.registerCommand(
       'jp-to-other-selector.moveCursorLeft', () => {
         moveCursorLeft().catch((error: unknown) => {
-          console.error('Failed to move cursor right:', error);
+          vscode.window.showErrorMessage(
+            `Failed to move cursor left: ${String(error)}`,
+          );
         });
       },
     ),
