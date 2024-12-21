@@ -4,14 +4,34 @@
  */
 import * as vscode from 'vscode';
 
-async function moveCursorRight(): Promise<void> {
-  vscode.window.showInformationMessage('Move Right!');
+async function moveCursorToNextWord(): Promise<void> {
   await vscode.commands.executeCommand('cursorWordRight');
 }
 
-async function moveCursorLeft(): Promise<void> {
-  vscode.window.showInformationMessage('Move Left!');
+async function moveCursorToPreviousWord(): Promise<void> {
   await vscode.commands.executeCommand('cursorWordLeft');
+}
+
+async function moveCursorRight(): Promise<void> {
+  try {
+    vscode.window.showInformationMessage('Move Right!');
+    await moveCursorToNextWord();
+  } catch (error: unknown) {
+    vscode.window.showErrorMessage(
+      `Failed to move cursor right: ${String(error)}`,
+    );
+  }
+}
+
+async function moveCursorLeft(): Promise<void> {
+  try {
+    vscode.window.showInformationMessage('Move Left!');
+    await moveCursorToPreviousWord();
+  } catch (error: unknown) {
+    vscode.window.showErrorMessage(
+      `Failed to move cursor left: ${String(error)}`,
+    );
+  }
 }
 
 /*
@@ -36,24 +56,12 @@ export function activate(context: vscode.ExtensionContext): void {
    */
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'jp-to-other-selector.moveCursorRight', () => {
-        moveCursorRight().catch((error: unknown) => {
-          vscode.window.showErrorMessage(
-            `Failed to move cursor right: ${String(error)}`,
-          );
-        });
-      },
+      'jp-to-other-selector.moveCursorRight', moveCursorRight,
     ),
   );
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'jp-to-other-selector.moveCursorLeft', () => {
-        moveCursorLeft().catch((error: unknown) => {
-          vscode.window.showErrorMessage(
-            `Failed to move cursor left: ${String(error)}`,
-          );
-        });
-      },
+      'jp-to-other-selector.moveCursorLeft', moveCursorLeft,
     ),
   );
 }
