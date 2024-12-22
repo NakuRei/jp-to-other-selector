@@ -1,71 +1,58 @@
 # jp-to-other-selector README
 
-This is the README for your extension "jp-to-other-selector". After writing up a brief description, we recommend including the following sections.
+日本語と他の文字の間にカーソルを移動しやすくするための、[VS Code](https://code.visualstudio.com/)の拡張機能。
+
+## Description
+
+このVS Code拡張機能は、日本語（ひらがな・カタカナ・漢字のかたまり）と、他の文字（アルファベット・数字・記号）の間を素早く移動するための機能を提供します。
+
+たとえば、以下のようなテキストがあるとします：
+
+```text
+VS Codeは、Microsoftが提供するソースコードエディタです。
+```
+
+デフォルトのVS Codeでは、`Ctrl + Right`でカーソルを移動すると、以下のようになります：
+
+![Original cursor movement](https://github.com/NakuRei/jp-to-other-selector/blob/main/docs/images/example_before.gif)
+
+この拡張機能をインストールすることで、`Ctrl + Right`でカーソルを移動すると、以下のように移動が変わります：
+
+![Improved cursor movement](https://github.com/NakuRei/jp-to-other-selector/blob/main/docs/images/example_after.gif)
+
+これだけです。あ、もちろん、逆方向にも移動できますし、選択・削除もできます。
+
+重要なのは、この拡張機能は「日本語を単語に分けることはしない」ということです。日本語の単語を分けたい場合は、[Word Divider](https://github.com/yutotnh/word-divider/tree/main)等の拡張機能を使ったほうが幸せになれます。この拡張機能は、日本語は塊のまま、英語などの他の言語との境目にカーソルを移動できるようにするだけです。
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+この拡張機能をインストールすると、自動で以下のキーバインドが変更されます。
 
-For example if there is an image subfolder under your extension project workspace:
+| キーバインド(except macOS) | キーバインド(macOS)      | 機能           |
+| -------------------------- | ------------------------ | -------------- |
+| `Ctrl + Right`             | `Option + Right`         | 次の単語へ移動 |
+| `Ctrl+ Left`               | `Option + Left`          | 前の単語へ移動 |
+| `Ctrl + Shift + Right`     | `Option + Shift + Right` | 次の単語を選択 |
+| `Ctrl + Shift + Left`      | `Option + Shift + Left`  | 前の単語を選択 |
+| `Ctrl + Delete`            | `Option + Delete`        | 次の単語を削除 |
+| `Ctrl + Backspace`         | `Option + Backspace`     | 前の単語を削除 |
 
-\!\[feature X\]\(images/feature-x.png\)
+この`単語`の境目に、日本語と他の文字の境目が含まれるよう変更されます。
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+この拡張機能が提供する機能は、コマンドパレットには表示されません。しかし、これらのアクションはコマンドとして実装されているので、任意のキーの組み合わせを再割り当てすることができます。そのため、デフォルトのキーバインドを上書きしたくない場合は、この拡張機能が提供する上記のキーバインドを変更してください。
+
+## Usage
+
+1. この拡張機能をインストールします
+
+これだけです。インストール後、Featuresに記載したキーバインドのアクションが変更されます。
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+この拡張機能は、VS Codeのバージョン1.96.2以上で動作します。
 
-## Extension Settings
+## License
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+(c) 2024 NakuRei
 
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+この拡張機能は、MITライセンスの下で公開されています。詳細については、[LICENSE](./LICENSE)を参照してください。
