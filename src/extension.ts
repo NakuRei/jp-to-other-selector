@@ -4,35 +4,8 @@
  */
 import * as vscode from 'vscode';
 
-async function moveCursorToNextWord(): Promise<void> {
-  await vscode.commands.executeCommand('cursorWordRight');
-}
-
-async function moveCursorToPreviousWord(): Promise<void> {
-  await vscode.commands.executeCommand('cursorWordLeft');
-}
-
-async function moveCursorRight(): Promise<void> {
-  try {
-    vscode.window.showInformationMessage('Move Right!');
-    await moveCursorToNextWord();
-  } catch (error: unknown) {
-    vscode.window.showErrorMessage(
-      `Failed to move cursor right: ${String(error)}`,
-    );
-  }
-}
-
-async function moveCursorLeft(): Promise<void> {
-  try {
-    vscode.window.showInformationMessage('Move Left!');
-    await moveCursorToPreviousWord();
-  } catch (error: unknown) {
-    vscode.window.showErrorMessage(
-      `Failed to move cursor left: ${String(error)}`,
-    );
-  }
-}
+import { moveCursorRight } from './functions/moveCursorRight';
+import { moveCursorLeft } from './functions/moveCursorLeft';
 
 /*
  * This method is called when your extension is activated
