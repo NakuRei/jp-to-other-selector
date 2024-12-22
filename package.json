@@ -1,13 +1,28 @@
 {
   "name": "jp-to-other-selector",
   "displayName": "Jp to Other Selector",
-  "description": "",
-  "version": "0.0.1",
+  "description": "Move cursor between Japanese and other characters",
+  "version": "0.1.0",
+  "publisher": "NakuRei",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/NakuRei/jp-to-other-selector/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NakuRei/jp-to-other-selector.git"
+  },
+  "homepage": "https://github.com/NakuRei/jp-to-other-selector",
   "engines": {
     "vscode": "^1.96.0"
   },
   "categories": [
     "Other"
+  ],
+  "keywords": [
+    "cursor",
+    "日本語",
+    "japanese"
   ],
   "activationEvents": [
     "onCommand:jp-to-other-selector.cursorWordEndRight",
