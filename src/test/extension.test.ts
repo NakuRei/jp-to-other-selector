@@ -24,25 +24,7 @@ async function setupEditor(
 suite('Extension Test Suite', () => {
   vscode.window.showInformationMessage('Start all tests.');
 
-  test('cursorWordEndRight command should be registered',
-    () => {
-      vscode.commands.getCommands(true).then((commands) => {
-        assert.ok(commands.includes(
-          'jp-to-other-selector.cursorWordEndRight',
-        ));
-      });
-    });
-
-  test('cursorWordStartLeft command should be registered',
-    () => {
-      vscode.commands.getCommands(true).then((commands) => {
-        assert.ok(commands.includes(
-          'jp-to-other-selector.cursorWordStartLeft',
-        ));
-      });
-    });
-
-  test('moveCursorRight should move the cursor to the right by one word',
+  test('cursorWordEndRight should move the cursor to the right by one word',
     async() => {
       const TEST_CASES = [
         { text: 'test word',
@@ -79,7 +61,7 @@ suite('Extension Test Suite', () => {
       }
     });
 
-  test('moveCursorLeft should move the cursor to the left by one word',
+  test('cursorWordStartLeft should move the cursor to the left by one word',
     async() => {
       const TEST_CASES = [
         { text: 'test word',
@@ -115,4 +97,100 @@ suite('Extension Test Suite', () => {
         );
       }
     });
+
+  test('cursorWordEndRightSelect '
+    + 'should move the cursor to the next boundary with selection',
+  async() => {
+    const TEST_CASES = [
+      { text: 'test word',
+        position: new vscode.Position(0, 0),
+        expected: {
+          active: new vscode.Position(0, 4),
+          anchor: new vscode.Position(0, 0),
+        } },
+      { text: 'test word',
+        position: new vscode.Position(0, 4),
+        expected: {
+          active: new vscode.Position(0, 9),
+          anchor: new vscode.Position(0, 4),
+        } },
+      { text: 'Windowsマシン',
+        position: new vscode.Position(0, 0),
+        expected: {
+          active: new vscode.Position(0, 7),
+          anchor: new vscode.Position(0, 0),
+        } },
+      { text: 'PCはLinuxです',
+        position: new vscode.Position(0, 3),
+        expected: {
+          active: new vscode.Position(0, 8),
+          anchor: new vscode.Position(0, 3),
+        } },
+    ];
+    for (const testCase of TEST_CASES) {
+      // eslint-disable-next-line no-await-in-loop
+      const editor = await setupEditor(
+        testCase.text,
+        testCase.position,
+      );
+        // eslint-disable-next-line no-await-in-loop
+      await vscode.commands.executeCommand(
+        'jp-to-other-selector.cursorWordEndRightSelect',
+      );
+      assert.strictEqual(
+        editor.selection.active.isEqual(testCase.expected.active), true,
+      );
+      assert.strictEqual(
+        editor.selection.anchor.isEqual(testCase.expected.anchor), true,
+      );
+    }
+  });
+
+  test('cursorWordStartLeftSelect '
+    + 'should move the cursor to the previous boundary with selection',
+  async() => {
+    const TEST_CASES = [
+      { text: 'test word',
+        position: new vscode.Position(0, 9),
+        expected: {
+          active: new vscode.Position(0, 5),
+          anchor: new vscode.Position(0, 9),
+        } },
+      { text: 'test word',
+        position: new vscode.Position(0, 5),
+        expected: {
+          active: new vscode.Position(0, 0),
+          anchor: new vscode.Position(0, 5),
+        } },
+      { text: 'Windowsマシン',
+        position: new vscode.Position(0, 10),
+        expected: {
+          active: new vscode.Position(0, 7),
+          anchor: new vscode.Position(0, 10),
+        } },
+      { text: 'PCはLinuxです',
+        position: new vscode.Position(0, 8),
+        expected: {
+          active: new vscode.Position(0, 3),
+          anchor: new vscode.Position(0, 8),
+        } },
+    ];
+    for (const testCase of TEST_CASES) {
+      // eslint-disable-next-line no-await-in-loop
+      const editor = await setupEditor(
+        testCase.text,
+        testCase.position,
+      );
+        // eslint-disable-next-line no-await-in-loop
+      await vscode.commands.executeCommand(
+        'jp-to-other-selector.cursorWordStartLeftSelect',
+      );
+      assert.strictEqual(
+        editor.selection.active.isEqual(testCase.expected.active), true,
+      );
+      assert.strictEqual(
+        editor.selection.anchor.isEqual(testCase.expected.anchor), true,
+      );
+    }
+  });
 });
