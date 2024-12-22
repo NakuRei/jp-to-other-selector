@@ -2,6 +2,10 @@
 
 日本語と他の文字の間にカーソルを移動しやすくするための、[VS Code](https://code.visualstudio.com/)の拡張機能。
 
+## Installation
+
+[VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=NakuRei.jp-to-other-selector)からインストールできます。
+
 ## Description
 
 このVS Code拡張機能は、日本語（ひらがな・カタカナ・漢字のかたまり）と、他の文字（アルファベット・数字・記号）の間を素早く移動するための機能を提供します。
