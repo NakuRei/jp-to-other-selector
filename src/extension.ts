@@ -4,8 +4,8 @@
  */
 import * as vscode from 'vscode';
 
-import { moveCursorRight } from './functions/moveCursorRight';
-import { moveCursorLeft } from './functions/moveCursorLeft';
+import { cursorWordEndRight } from './functions/cursorWordEndRight';
+import { cursorWordStartLeft } from './functions/cursorWordStartLeft';
 
 /*
  * This method is called when your extension is activated
@@ -13,28 +13,20 @@ import { moveCursorLeft } from './functions/moveCursorLeft';
  */
 export function activate(context: vscode.ExtensionContext): void {
   /*
-   * Use the console to output diagnostic information (console.log)
-   * and errors (console.error)
-   * This line of code will only be executed once
-   * when your extension is activated
-   */
-  console.log(
-    'Congratulations, your extension "jp-to-other-selector" is now active!',
-  );
-
-  /*
    * The command has been defined in the package.json file
    * Now provide the implementation of the command with registerCommand
    * The commandId parameter must match the command field in package.json
    */
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'jp-to-other-selector.moveCursorRight', moveCursorRight,
+      'jp-to-other-selector.cursorWordEndRight',
+      cursorWordEndRight,
     ),
   );
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      'jp-to-other-selector.moveCursorLeft', moveCursorLeft,
+      'jp-to-other-selector.cursorWordStartLeft',
+      cursorWordStartLeft,
     ),
   );
 }
