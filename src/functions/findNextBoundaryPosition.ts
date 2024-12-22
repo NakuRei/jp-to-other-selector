@@ -13,7 +13,7 @@ export function findNextBoundaryPosition(
       const nextLine = position.line + 1;
       const nextLineText = document.lineAt(nextLine).text;
       const boundaryMatches = [...nextLineText.matchAll(boundaryRegex)];
-      if (boundaryMatches.length > 0) {
+      if (boundaryMatches.length > 1) {
         const secondMatch = boundaryMatches[1];
         const offset = secondMatch.index;
         return new vscode.Position(nextLine, offset);
