@@ -9,30 +9,23 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:jp-to-other-selector.cursorWordEndRight",
+    "onCommand:jp-to-other-selector.cursorWordStartLeft"
+  ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "jp-to-other-selector.moveCursorRight",
-        "title": "Move Cursor Right"
-      },
-      {
-        "command": "jp-to-other-selector.moveCursorLeft",
-        "title": "Move Cursor Left"
-      }
-    ],
     "keybindings": [
       {
-        "command": "jp-to-other-selector.moveCursorRight",
+        "command": "jp-to-other-selector.cursorWordEndRight",
         "key": "ctrl+right",
-        "mac": "cmd+right",
+        "mac": "option+right",
         "when": "editorTextFocus"
       },
       {
-        "command": "jp-to-other-selector.moveCursorLeft",
+        "command": "jp-to-other-selector.cursorWordStartLeft",
         "key": "ctrl+left",
-        "mac": "cmd+left",
+        "mac": "option+left",
         "when": "editorTextFocus"
       }
     ]
