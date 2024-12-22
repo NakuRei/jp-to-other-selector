@@ -14,11 +14,11 @@ VS Codeは、Microsoftが提供するソースコードエディタです。
 
 デフォルトのVS Codeでは、`Ctrl + Right`でカーソルを移動すると、以下のようになります：
 
-![Original cursor movement](https://github.com/NakuRei/jp-to-other-selector/blob/main/docs/images/example_before.gif)
+![Original cursor movement](https://raw.githubusercontent.com/NakuRei/jp-to-other-selector/main/docs/images/example_before.gif)
 
 この拡張機能をインストールすることで、`Ctrl + Right`でカーソルを移動すると、以下のように移動が変わります：
 
-![Improved cursor movement](https://github.com/NakuRei/jp-to-other-selector/blob/main/docs/images/example_after.gif)
+![Improved cursor movement](https://raw.githubusercontent.com/NakuRei/jp-to-other-selector/main/docs/images/example_after.gif)
 
 これだけです。あ、もちろん、逆方向にも移動できますし、選択・削除もできます。
 
