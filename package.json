@@ -13,7 +13,9 @@
     "onCommand:jp-to-other-selector.cursorWordEndRight",
     "onCommand:jp-to-other-selector.cursorWordStartLeft",
     "onCommand:jp-to-other-selector.cursorWordEndRightSelect",
-    "onCommand:jp-to-other-selector.cursorWordStartLeftSelect"
+    "onCommand:jp-to-other-selector.cursorWordStartLeftSelect",
+    "onCommand:jp-to-other-selector.deleteWordEndRight",
+    "onCommand:jp-to-other-selector.deleteWordStartLeft"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -41,6 +43,18 @@
         "key": "ctrl+shift+left",
         "mac": "option+shift+left",
         "when": "editorTextFocus"
+      },
+      {
+        "command": "jp-to-other-selector.deleteWordEndRight",
+        "key": "ctrl+delete",
+        "mac": "option+delete",
+        "when": "editorTextFocus && !editorReadonly"
+      },
+      {
+        "command": "jp-to-other-selector.deleteWordStartLeft",
+        "key": "ctrl+backspace",
+        "mac": "option+backspace",
+        "when": "editorTextFocus && !editorReadonly"
       }
     ]
   },
