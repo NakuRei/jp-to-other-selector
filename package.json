@@ -2,7 +2,7 @@
   "name": "jp-to-other-selector",
   "displayName": "Jp to Other Selector",
   "description": "Move cursor between Japanese and other characters",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "NakuRei",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
