@@ -11,7 +11,9 @@
   ],
   "activationEvents": [
     "onCommand:jp-to-other-selector.cursorWordEndRight",
-    "onCommand:jp-to-other-selector.cursorWordStartLeft"
+    "onCommand:jp-to-other-selector.cursorWordStartLeft",
+    "onCommand:jp-to-other-selector.cursorWordEndRightSelect",
+    "onCommand:jp-to-other-selector.cursorWordStartLeftSelect"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -26,6 +28,18 @@
         "command": "jp-to-other-selector.cursorWordStartLeft",
         "key": "ctrl+left",
         "mac": "option+left",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "jp-to-other-selector.cursorWordEndRightSelect",
+        "key": "ctrl+shift+right",
+        "mac": "option+shift+right",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "jp-to-other-selector.cursorWordStartLeftSelect",
+        "key": "ctrl+shift+left",
+        "mac": "option+shift+left",
         "when": "editorTextFocus"
       }
     ]

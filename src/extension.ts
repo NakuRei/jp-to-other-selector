@@ -6,6 +6,8 @@ import * as vscode from 'vscode';
 
 import { cursorWordEndRight } from './functions/cursorWordEndRight';
 import { cursorWordStartLeft } from './functions/cursorWordStartLeft';
+import { cursorWordEndRightSelect } from './functions/cursorWordEndRightSelect';
+import { cursorWordStartLeftSelect } from './functions/cursorWordStartLeftSelect';
 
 /*
  * This method is called when your extension is activated
@@ -27,6 +29,18 @@ export function activate(context: vscode.ExtensionContext): void {
     vscode.commands.registerCommand(
       'jp-to-other-selector.cursorWordStartLeft',
       cursorWordStartLeft,
+    ),
+  );
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      'jp-to-other-selector.cursorWordEndRightSelect',
+      cursorWordEndRightSelect,
+    ),
+  );
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      'jp-to-other-selector.cursorWordStartLeftSelect',
+      cursorWordStartLeftSelect,
     ),
   );
 }
