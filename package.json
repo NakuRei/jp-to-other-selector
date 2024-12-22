@@ -1,21 +1,75 @@
 {
   "name": "jp-to-other-selector",
   "displayName": "Jp to Other Selector",
-  "description": "",
-  "version": "0.0.1",
+  "description": "Move cursor between Japanese and other characters",
+  "version": "0.1.0",
+  "publisher": "NakuRei",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/NakuRei/jp-to-other-selector/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NakuRei/jp-to-other-selector.git"
+  },
+  "homepage": "https://github.com/NakuRei/jp-to-other-selector",
   "engines": {
     "vscode": "^1.96.0"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "keywords": [
+    "cursor",
+    "日本語",
+    "japanese"
+  ],
+  "activationEvents": [
+    "onCommand:jp-to-other-selector.cursorWordEndRight",
+    "onCommand:jp-to-other-selector.cursorWordStartLeft",
+    "onCommand:jp-to-other-selector.cursorWordEndRightSelect",
+    "onCommand:jp-to-other-selector.cursorWordStartLeftSelect",
+    "onCommand:jp-to-other-selector.deleteWordEndRight",
+    "onCommand:jp-to-other-selector.deleteWordStartLeft"
+  ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
+    "keybindings": [
       {
-        "command": "jp-to-other-selector.helloWorld",
-        "title": "Hello World"
+        "command": "jp-to-other-selector.cursorWordEndRight",
+        "key": "ctrl+right",
+        "mac": "option+right",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "jp-to-other-selector.cursorWordStartLeft",
+        "key": "ctrl+left",
+        "mac": "option+left",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "jp-to-other-selector.cursorWordEndRightSelect",
+        "key": "ctrl+shift+right",
+        "mac": "option+shift+right",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "jp-to-other-selector.cursorWordStartLeftSelect",
+        "key": "ctrl+shift+left",
+        "mac": "option+shift+left",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "jp-to-other-selector.deleteWordEndRight",
+        "key": "ctrl+delete",
+        "mac": "option+delete",
+        "when": "editorTextFocus && !editorReadonly"
+      },
+      {
+        "command": "jp-to-other-selector.deleteWordStartLeft",
+        "key": "ctrl+backspace",
+        "mac": "option+backspace",
+        "when": "editorTextFocus && !editorReadonly"
       }
     ]
   },
@@ -25,18 +79,30 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,ts}": "eslint --fix"
   },
   "devDependencies": {
-    "@types/vscode": "^1.96.0",
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@stylistic/eslint-plugin": "^2.12.1",
+    "@stylistic/eslint-plugin-ts": "^2.12.1",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
+    "@types/vscode": "^1.96.0",
     "@typescript-eslint/eslint-plugin": "^8.17.0",
     "@typescript-eslint/parser": "^8.17.0",
-    "eslint": "^9.16.0",
-    "typescript": "^5.7.2",
     "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.4.1"
+    "@vscode/test-electron": "^2.4.1",
+    "@vscode/vsce": "^3.2.1",
+    "eslint": "^9.16.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.11",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.0"
   },
   "volta": {
     "node": "22.12.0",
